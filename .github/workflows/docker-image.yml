@@ -15,11 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/skill17-${{github.event.repository.name}}
+      run: docker build . --file Dockerfile --tag git.local.skill17.com/${{ github.repository }}
     - name: docker login
       env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
-        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        USER: ${{ secrets.USER }}
+        PASS: ${{ secrets.PASS }}
+      run: docker login -u $USER -p $PASS git.local.skill17.com
     - name: push to docker hub
-      run: docker push ${{secrets.DOCKER_USER}}/skill17-${{github.event.repository.name}}
+      run: docker push git.local.skill17.com/${{ github.repository }}
