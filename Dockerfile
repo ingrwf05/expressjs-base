@@ -4,4 +4,4 @@ WORKDIR /app
 COPY ./ /app
 RUN npm install
 
-CMD ["bash"]
+CMD ["node","app.js"]
