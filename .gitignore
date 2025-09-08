@@ -21,4 +21,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# prisma
 /generated/prisma
+
+# Editors
+.idea/
+.vscode/
